@@ -25,7 +25,9 @@ App = function(){
     this.getIpCallback = function(self){
         return function(){
             var apiKey = $("#api-key").val();
-            util.requestData("/{}/get-ip".format(apiKey),[self.displayIpCallback(self)]);
+            if (apiKey != ""){
+                util.requestData("/{}/get-ip".format(apiKey),[self.displayIpCallback(self)]);
+            };
         };
     };
     this.displayIpCallback = function(self){
